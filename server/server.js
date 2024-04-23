@@ -27,7 +27,7 @@ const server = new ApolloServer({
 //   app.use(express.static(path.join(__dirname, '../client/build')));
 // }
 
-app.use(routes);
+// app.use(routes);
 
 // db.once('open', () => {
 //   app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
@@ -41,9 +41,11 @@ const startApolloServer = async () => {
     app.use(express.json());
   
     // app.use('/graphql', expressMiddleware(server));
-    app.use('/graphql', expressMiddleware(server, {
-        context: authMiddleware
-      }));
+    app.use('/graphql', expressMiddleware(server)); //replaces routes
+    // // app.use('/graphql', expressMiddleware(server));
+    // app.use('/graphql', expressMiddleware(server, {
+    //     context: authMiddleware
+    //   })); //replaces routes
 
       if (process.env.NODE_ENV === 'production') {
         app.use(express.static(path.join(__dirname, '../client/dist')));

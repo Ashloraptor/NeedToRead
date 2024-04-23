@@ -12,20 +12,15 @@ const resolvers = {
       return Book.find(params);
     },
   },
-  // Mutation: {
-  //   createMatchup: async (parent, args) => {
-  //     const matchup = await Matchup.create(args);
-  //     return matchup;
-  //   },
-  //   createVote: async (parent, { _id, techNum }) => {
-  //     const vote = await Matchup.findOneAndUpdate(
-  //       { _id },
-  //       { $inc: { [`tech${techNum}_votes`]: 1 } },
-  //       { new: true }
-  //     );
-  //     return vote;
-  //   },
-  // },
+  Mutation: {
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      //login user after creation
+      const token = signToken(user);
+
+      return {token, user};
+    }
+  }
 };
 
 module.exports = resolvers;
