@@ -1,5 +1,6 @@
 const { User, Book } = require('../models');
 //import bookSchema?
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
