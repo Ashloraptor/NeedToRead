@@ -1,3 +1,6 @@
+// Import the `useParams()` hook
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
 import { useState, useEffect } from 'react';
 import {
   Container,
@@ -9,7 +12,9 @@ import {
 } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
-import { saveBook, searchGoogleBooks } from '../utils/API';
+import { searchGoogleBooks } from '../utils/API';
+// import { saveBook, searchGoogleBooks } from '../../../server/schemas';
+import { QUERY_BOOKS} from '../utils/queries'
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 
 const SearchBooks = () => {
@@ -72,11 +77,11 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await saveBook(bookToSave, token);
+      const response = await saveBookIds(bookToSave, token);
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
+      // if (!response.ok) {
+      //   throw new Error('something went wrong!');
+      // }
 
       // if book successfully saves to user's account, save book id to state
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
