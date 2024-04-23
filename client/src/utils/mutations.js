@@ -11,37 +11,38 @@ export const LOGIN = gql`
   }
 `;
 
+export const ADD_USER = gql`
+  mutation addUser($email: String!, $username: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
+        token
+        user {
+          _id
+          username
+        }
+      }
+    }
+  `;
+
 // export const ADD_USER = gql`
-//   mutation addUser($email: String!, $username: String!, $password: String!) {
-//     addUser(email: $email, username: $username, password: $password) {
+//   mutation addUser(
+//     $firstName: String!
+//     $lastName: String!
+//     $email: String!
+//     $password: String!
+//   ) {
+//     addUser(
+//       firstName: $firstName
+//       lastName: $lastName
+//       email: $email
+//       password: $password
+//     ) {
+//       token
+//       user {
 //         _id
-//         username
-//         email
-        
+//       }
 //     }
 //   }
 // `;
-
-export const ADD_USER = gql`
-  mutation addUser(
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $password: String!
-  ) {
-    addUser(
-      firstName: $firstName
-      lastName: $lastName
-      email: $email
-      password: $password
-    ) {
-      token
-      user {
-        _id
-      }
-    }
-  }
-`;
 
 export const CREATE_SAVEDBOOK = gql`
   mutation createSavedBook($_id: Int!, $user_id: Int!) {

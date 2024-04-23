@@ -40,7 +40,6 @@ const SignupForm = () => {
       // }
       console.log('Hello?!')
       const {data} = await addUser({
-        // variables: userFormData
         variables: {...userFormData},
       });
       //return token & user?
