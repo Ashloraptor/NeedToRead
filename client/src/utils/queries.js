@@ -7,21 +7,15 @@ export const QUERY_USER = gql`
       username
       email
       password
-      savedBooks
-    }
-  }
-`;
-
-export const QUERY_BOOKS = gql`
-  query books($_id: String) {
-    books(_id: $_id) {
-      _id
-      authors
-      description
-      bookId
-      image
-      link
-      title
+      savedBooks{
+        _id
+        authors
+        description
+        bookId
+        image
+        link
+        title
+      }
     }
   }
 `;

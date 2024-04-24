@@ -94,7 +94,7 @@ class AuthService {
     localStorage.removeItem('id_token');
     // this will reload the page and reset the state of the application
     // window.location.assign('/');
-    window.location.reload();
+    window.location.assign('/');
   }
 }
 
