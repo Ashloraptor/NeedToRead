@@ -36,8 +36,5 @@
   "bugs": {
     "url": "https://github.com/Ashloraptor/NeedToRead/issues"
   },
-  "homepage": "https://github.com/Ashloraptor/NeedToRead#readme",
-  "dependencies": {
-    "bcrypt": "^5.1.1"
-  }
+  "homepage": "https://github.com/Ashloraptor/NeedToRead#readme"
 }
